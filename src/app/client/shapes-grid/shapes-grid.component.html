@@ -1,0 +1,32 @@
+﻿<mat-sidenav-container autosize>
+  <mat-sidenav mode="side" opened="true">
+    <h4>Categories</h4>
+    <mat-list>
+      <mat-list-item class="category-item" [class.is-selected]="category === (selectedCategory$ | async)" 
+        *ngFor="let category of categories$ | async" 
+        (click)="onCategoryClick(category)">
+        <a href="javascript:;" matLine>{{ category.name }}</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="shapes-list"
+      *ngIf="shapes$ | async as shapes; else loading">
+      <div *ngIf="shapes.length === 0">
+        List is empty
+      </div>
+      <div class="shape-item"
+        [class.is-selected]="shape === (selectedShape$ | async)"
+        *ngFor="let shape of shapes"
+        (click)="onShapeClick(shape)">
+        <img [src]="shape.url" class="shape-image"/>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-template #loading>
+  <div>
+    Loading
+  </div>
+</ng-template>

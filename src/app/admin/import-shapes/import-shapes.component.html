@@ -1,0 +1,20 @@
+﻿<form (ngSubmit)="onSubmit()">
+  <div class="files-select">
+    <p class="files-names">
+      {{ selectedFilesNames || 'Images are not selected' }}
+    </p>
+    <button type="button" mat-button (click)="fileInput.click()">Select files</button>
+    <input type="file"
+      multiple
+      hidden
+      accept="image/svg+xml"
+      #fileInput (change)="onFilesChange($event)"/>
+  </div>
+  <mat-form-field>
+    <input type="text" name="categories" placeholder="Categories" required matInput [(ngModel)]="categoriesAsString" />
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary" [disabled]="isUploading">
+    <span *ngIf="isUploading">Importing...</span>
+    <span *ngIf="!isUploading">Import</span>
+  </button>
+</form>

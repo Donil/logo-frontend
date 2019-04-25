@@ -1,0 +1,27 @@
+:root {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.business-card {
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  img {
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .card-name {
+    text-align: center;
+    font-weight: bold;
+  }
+}

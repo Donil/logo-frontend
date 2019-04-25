@@ -1,0 +1,48 @@
+<header>
+  <div class="menu-logo">
+    <button mat-icon-button (click)="onToggleSidebarClick()">
+      <mat-icon class="fa fa-bars" aria-hidden="true"></mat-icon>
+    </button>
+    <a [routerLink]="['/']" class="logo">
+      <b>MyLOGO</b>
+    </a>
+  </div>
+  <div class="history-navigation">
+    <button mat-raised-button (click)="onUndoClick()" [disabled]="!canUndo">
+      <mat-icon class="fa fa-undo" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Вернуть</span>
+    </button>
+    <button mat-raised-button color="primary" 
+      (click)="onRedoClick()" [disabled]="!canRedo">
+      <mat-icon class="fa fa-repeat" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Повторить</span>
+    </button>
+  </div>
+
+  <div class="actions-controls">
+    <button mat-raised-button color="accent"
+      (click)="onCreateNewClick()">
+      <mat-icon class="fa fa-file" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Новый</span>
+    </button>
+    <button mat-raised-button (click)="onSaveClick()">
+      <mat-icon class="fa fa-floppy-o" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Сохранить</span>
+    </button>
+    <button mat-raised-button (click)="onOpenClick()">
+      <mat-icon class="fa fa-folder-open-o" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Открыть</span>
+    </button>
+    <button mat-raised-button [matMenuTriggerFor]="downloadMenu">
+      <mat-icon class="fa fa-download" aria-hidden="true"></mat-icon>
+      <span fxHide.sm fxHide.xs> Скачать</span>
+    </button>
+    <mat-menu #downloadMenu="matMenu">
+      <button mat-menu-item 
+        *ngFor="let formatItem of availableFormats"
+        (click)="onDownloadClick(formatItem.format)">
+        {{ formatItem.title }}
+      </button>
+    </mat-menu>
+  </div>
+</header>

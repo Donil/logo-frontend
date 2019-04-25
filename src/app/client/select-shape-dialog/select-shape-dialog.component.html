@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Select shape to add</h1>
+<div mat-dialog-content>
+  <cl-shapes-grid #shapesGrid>
+  </cl-shapes-grid>
+</div>
+<div mat-dialog-actions>
+  <button mat-button 
+    [matDialogClose]="shapesGrid.selectedShape"
+    [disabled]="!shapesGrid.selectedShape">Ok</button>
+  <button mat-button [matDialogClose]>Cancel</button>
+</div>

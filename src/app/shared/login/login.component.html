@@ -1,0 +1,38 @@
+﻿<form class="form-login"
+  (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input 
+      type="text" 
+      name="username" 
+      title="Please enter you username" 
+      placeholder="Логин"
+      autocomplete="username"
+      required
+      matInput
+      [(ngModel)]="login">
+  </mat-form-field>
+  <mat-form-field>
+    <input 
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Пароль"
+      title="Please enter your password"
+      autocomplete="current-password"
+      required
+      matInput
+      [(ngModel)]="password">
+  </mat-form-field>
+  <div class="alert alert-error hide"
+    *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <button 
+    type="submit" 
+    class="btn btn-success btn-block" 
+    mat-raised-button
+    color="primary"
+    [disabled]="isBusy">
+    Войти
+  </button>
+</form>

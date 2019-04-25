@@ -1,0 +1,29 @@
+﻿<mat-sidenav-container>
+  <mat-sidenav mode="side" opened="true">
+    <h4>Categories</h4>
+    <div>
+      <form #form="ngForm" class="add-category-form" (ngSubmit)="onAddCategoryFormSubmit(form)">
+        <mat-form-field>
+          <input type="text" name="categoryName"
+            placeholder="New category name" pattern="\w+" required matInput ngModel/>
+        </mat-form-field>
+        <button mat-icon-button type="submit">
+          <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+    <mat-list>
+      <mat-list-item class="category-item"
+        *ngFor="let category of categories$ | async"
+        [class.is-selected]="category === (selectedCategory$ | async)"
+        (click)="onCategoryClick(category)">
+        <a href="javascript:;" matLine>{{ category.name }}</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ad-shapes-management-grid
+      [category]="selectedCategory$ | async">
+    </ad-shapes-management-grid>
+  </mat-sidenav-content>
+</mat-sidenav-container>

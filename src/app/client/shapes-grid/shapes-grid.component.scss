@@ -1,0 +1,37 @@
+mat-sidenav-container {
+  height: 100%;
+  min-height: 50vh;
+}
+
+.category-item.is-selected {
+  background-color: #ccc;
+}
+
+.shapes-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.shape-item {
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+
+  &:hover, &.is-selected {
+    border-color: red;
+  }
+}
+
+.shape-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

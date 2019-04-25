@@ -1,0 +1,83 @@
+<mat-form-field *ngIf="isTextElement">
+  <input type="text"
+    matInput
+    [(ngModel)]="text" />
+    <mat-placeholder>
+      <mat-icon class="row-icon" 
+        fontSet="fontawesome" 
+        fontIcon="fa-font">
+      </mat-icon>
+      Текст
+    </mat-placeholder>
+</mat-form-field>
+<mat-form-field *ngIf="isTextElement">
+  <mat-select
+    [(ngModel)]="fontFamily">
+    <mat-option *ngFor="let fontFamilyItem of fontsFamilies$ | async"
+      [value]="fontFamilyItem">
+      {{ fontFamilyItem }}
+    </mat-option>
+  </mat-select>
+  <mat-placeholder>
+    <mat-icon class="row-icon" 
+      fontSet="fontawesome" 
+      fontIcon="fa-font">
+    </mat-icon>
+    Шрифт
+  </mat-placeholder>
+</mat-form-field>
+<mat-form-field *ngIf="canChangeColor()">
+  <input
+    type="color"
+    class="color-input"
+    matInput
+    [(ngModel)]="color" />
+    <mat-placeholder>
+      <mat-icon 
+        class="row-icon" 
+        fontSet="fontawesome" 
+        fontIcon="fa-paint-brush">
+      </mat-icon>
+      Цвет текста
+    </mat-placeholder>
+</mat-form-field>
+<div class="row buttons-actions">
+  <mat-icon 
+    class="row-icon" 
+    fontSet="fontawesome" 
+    fontIcon="fa-expand">
+  </mat-icon>
+  <button
+    type="button"
+    class="action"
+    aria-label="Decrease scale"
+    (click)="decScale()"
+    mat-raised-button>
+    <mat-icon fontSet="fontawesome" fontIcon="fa-minus"></mat-icon>
+  </button>
+  <button
+    type="button"
+    class="action"
+    aria-label="Increase scale"
+    (click)="incScale()"
+    mat-raised-button>
+    <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>
+  </button>
+</div>
+<div class="row buttons-actions">
+  <mat-icon class="row-icon" fontSet="fontawesome" fontIcon="fa-sort"></mat-icon>
+  <button
+    type="button"
+    class="action"
+    (click)="bringForward()"
+    mat-raised-button>
+    <mat-icon fontSet="fontawesome" fontIcon="fa-angle-up"></mat-icon>
+  </button>
+  <button
+    type="button"
+    class="action"
+    (click)="sendBackwards()"
+    mat-raised-button>
+    <mat-icon fontSet="fontawesome" fontIcon="fa-angle-down"></mat-icon>
+  </button>
+</div>

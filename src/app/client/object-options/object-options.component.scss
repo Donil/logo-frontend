@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.row-icon {
+  height: auto;
+}
+
+.action {
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.color-input {
+  min-height: 40px;
+}
+
+.iconic-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}

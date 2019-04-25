@@ -1,0 +1,33 @@
+<canvas #canvas></canvas>
+
+<button
+  #contextMenuTriggerElement
+  [ngStyle]="contextMenuStyle$ | async"
+  [matMenuTriggerFor]="contextMenu"
+  class="context-menu-trigger">
+  <mat-icon fontSet="fontawesome" fontIcon="fa-ellipsis-h"></mat-icon>
+</button>
+<mat-menu #contextMenu="matMenu"
+  [overlapTrigger]="false">
+  <button
+    (click)="onDuplicateItemClick()"
+    mat-menu-item
+    aria-label="Дублировать">
+    <mat-icon 
+      fontSet="fontawesome" 
+      fontIcon="fa-clone">
+    </mat-icon>
+    Дублировать
+  </button>
+  <button
+    (click)="onRemoveItemClick()"
+    mat-menu-item
+    aria-label="Удалить">
+    <mat-icon 
+      fontSet="fontawesome" 
+      fontIcon="fa-trash-o"
+      color="warn">
+    </mat-icon>
+    Удалить
+  </button>
+</mat-menu>

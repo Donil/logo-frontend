@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Select card to open</h1>
+<div mat-dialog-content>
+  <cl-business-cards-list #cardsList>
+  </cl-business-cards-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button 
+    [matDialogClose]="cardsList.selectedCard"
+    [disabled]="!cardsList.selectedCard">Ok</button>
+  <button mat-button [matDialogClose]>Cancel</button>
+</div>

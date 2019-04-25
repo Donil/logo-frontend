@@ -1,0 +1,29 @@
+<div class="shapes-list"
+  *ngIf="shapes$ | async as shapes; else loading">
+  <div class="shape-item" *ngFor="let shape of shapes">
+    <img [src]="shape.url" class="shape-image"/>
+    <button type="button"
+      mat-icon-button
+      color="warn"
+      class="remove-shape-button" 
+      (click)="onRemoveShapeClick(shape)">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  <button type="button"
+    class="shape-item"
+    (click)="onAddShapeClick()">
+    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+  </button>
+  <button type="button"
+    class="shape-item"
+    (click)="onImportShapeClick()">
+    <i class="fa fa-upload" aria-hidden="true"></i>
+  </button>
+</div>
+
+<ng-template #loading>
+  <div>
+    Loading...
+  </div>
+</ng-template>

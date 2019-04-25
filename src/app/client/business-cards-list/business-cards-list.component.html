@@ -1,0 +1,10 @@
+<div class="business-card"
+  *ngFor="let card of businessCards$ | async; trackBy: trackCardById">
+  <button type="button"
+    (click)="setSetlectedCard(card)">
+    <img [src]="card.thumbnailUrl" />
+    <div class="card-name">
+      {{ card.createdAt | date: 'dd.MM.yyyy' }}
+    </div>
+  </button>
+</div>

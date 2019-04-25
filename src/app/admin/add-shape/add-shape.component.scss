@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.file-select {
+    display: flex;
+
+    .file-name {
+        flex: 1;
+    }
+}

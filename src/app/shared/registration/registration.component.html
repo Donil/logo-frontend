@@ -1,0 +1,46 @@
+<form class="registration-form"
+  #form="ngForm"
+  (ngSubmit)="onFormSubmit(form)">
+  <mat-form-field>
+    <input
+      type="text"
+      placeholder="Имя"
+      required
+      matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      placeholder="Фамилия"
+      required
+      matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="email"
+      placeholder="Email"
+      required
+      matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="password"
+      placeholder="Пароль"
+      required
+      matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="password"
+      placeholder="Подтвердите пароль"
+      required
+      matInput />
+  </mat-form-field>
+  <button 
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="isBusy">
+    Регистрация
+  </button>
+</form>

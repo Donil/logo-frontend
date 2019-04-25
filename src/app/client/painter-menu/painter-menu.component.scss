@@ -1,0 +1,26 @@
+:host {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px;
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+
+    .history-navigation, .actions-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,58 @@
+﻿<cl-painter-menu 
+  [canUndo]="canUndo"
+  [canRedo]="canRedo"
+  (toggleSidebarClick)="onToggleSidebarClick()"
+  (undoClick)="onUndoClick()"
+  (redoClick)="onRedoClick()"
+  (createNewClick)="onCreateNewClick()"
+  (openClick)="onOpenClick()"
+  (saveClick)="onSaveClick()"
+  (downloadClick)="onDownloadClick($event)"></cl-painter-menu>
+<mat-sidenav-container class="container">
+  <mat-sidenav class="side-nav" mode="side" [opened]="isSidebarVisible$ | async">
+    <div class="actions">
+      <button mat-button (click)="onAddTextClick()">
+        <mat-icon class="fa fa-pencil-square-o" aria-hidden="true"></mat-icon>
+        <span>Добавить текст</span>
+      </button>
+      <button mat-button (click)="onAddShapeClick()">
+        <mat-icon class="fa fa-star-half-o" aria-hidden="true"></mat-icon>
+        <span>Выбрать символ</span>
+      </button>
+      <button mat-button (click)="imageInput.click()">
+        <mat-icon class="fa fa-picture-o" 
+          aria-hidden="true">
+        </mat-icon>
+        <span>Загрузить изображение</span>
+      </button>
+      <input #imageInput 
+          type="file" 
+          hidden
+          accept="image/svg+xml,image/jpeg,image/png,image/tiff"
+          (change)="onInputImageChange($event)" />
+    </div>
+    <cl-object-options
+      *ngIf="painterCanvas.selectedItem"
+      [element]="painterCanvas.selectedItem" 
+      (propertyChange)="painterCanvas.onEementPropertyChange($event)">
+    </cl-object-options>
+    <h4 *ngIf="(isAutorizedChange | async)">Вы авторизованы</h4>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="onLoginClick()"
+      *ngIf="!(isAutorizedChange | async)">
+      Войти в аккаунт
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <cl-painter-canvas 
+      #painterCanvas>
+    </cl-painter-canvas>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<a #downloadFileAnchor
+  hidden>
+  Need for run downloading file by url.
+</a>
